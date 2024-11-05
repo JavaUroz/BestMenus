@@ -1,0 +1,15 @@
+.section--generic {
+    margin-bottom: 2rem;
+}
+
+.section--generic__recipe--zone .recipe--list {
+    display: grid;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 1.15rem;
+}
+
+.section--generic__recipe--zone .recipe--list.card {
+    grid-template-columns: repeat(6, minmax(100px, 1fr));
+}

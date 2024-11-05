@@ -1,0 +1,27 @@
+<div class="card-recipe recipe">
+    <img appImgBroken [src]="recipe.imagePath" alt="" class="cover">
+    <div class="content-recipe">
+        <div class="title-recipe">{{recipe.name}}</div>
+        <div class="sub-title-recipe">{{recipe.description}}</div>
+    </div>
+    <div class="buttons-recipe">
+        <button (click)="deleteRecipe(recipe)" *ngIf="true" class="play-btn">
+            <i class="uil " [ngClass]="{'uil-play':true}"></i>
+        </button>
+        <button *ngIf="false" class="play-btn">
+            <i class="uil uil-play"></i>
+        </button>
+        <button (click)="addToFavorites(recipe)" *ngIf="true" class="play-btn">
+            <i class="uil " [ngClass]="{'uil-play':true}"></i>
+        </button>
+        <button *ngIf="false" class="play-btn">
+            <i class="uil uil-play"></i>
+        </button>
+        <button (click)="editRecipe(recipe)" *ngIf="true" class="play-btn">
+            <i class="uil " [ngClass]="{'uil-play':true}"></i>
+        </button>
+        <button *ngIf="false" class="play-btn">
+            <i class="uil uil-play"></i>
+        </button>
+    </div>
+</div>

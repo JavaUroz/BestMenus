@@ -1,0 +1,20 @@
+<form [formGroup]="authForm" (ngSubmit)="onSubmit()">
+  <mat-form-field>
+    <input matInput placeholder="Email" formControlName="email" type="email" required />
+    <mat-error *ngIf="authForm.get('email')?.invalid">Email inválido</mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Password" formControlName="password" type="password" required />
+    <mat-error *ngIf="authForm.get('password')?.invalid">Contraseña inválida</mat-error>
+  </mat-form-field>
+
+  <mat-form-field *ngIf="isRegister">
+    <input matInput placeholder="Confirm Password" formControlName="confirmPassword" type="password" required />
+    <mat-error *ngIf="authForm.get('confirmPassword')?.invalid">Confirmación de contraseña inválida</mat-error>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit">
+    {{ isRegister ? 'Register' : 'Login' }}
+  </button>
+</form>

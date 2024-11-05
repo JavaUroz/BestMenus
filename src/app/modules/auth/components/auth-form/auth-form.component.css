@@ -1,0 +1,34 @@
+:host {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-image: url('https://cdn.sortiraparis.com/images/1001/100789/834071-too-restaurant-too-hotel-paris-photos-menu-entrees.jpg');
+    background-size: cover;
+    background-position: center;
+  }
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    /* background-color: #645d5d; */
+  }
+  
+  .login-card {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    color: rgb(187, 187, 187);
+  }
+  
+  .full-width {
+    width: 100%;
+    margin-top: 10px;
+  }
+  
+  .login-button {
+    margin-top: 20px;
+    width: 100%;
+  }
