@@ -1,15 +1,46 @@
-.section--generic {
+.section-generic {
     margin-bottom: 2rem;
 }
 
-.section--generic__recipe--zone .recipe--list {
-    display: grid;
-    list-style: none;
+.recipe-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
     margin: 0;
     padding: 0;
     gap: 1.15rem;
 }
 
-.section--generic__recipe--zone .recipe--list.card {
+.recipe-item {
+    list-style: none;
+}
+
+.section-generic .recipe-zone .recipe-list.card {
     grid-template-columns: repeat(6, minmax(100px, 1fr));
 }
+
+.add-recipe-card {
+    margin: 10px;
+    padding: 10px;
+    width: 300px;
+    height: 300px;
+    background-color: #313030;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+
+.add-recipe-card:hover {
+    background-color: #949494; /* Cambiar color de fondo al pasar el mouse */
+}
+
+.add-recipe-card i {
+    font-size: 10rem; /* Tamaño del ícono */
+    color: #333; /* Color del ícono */
+}
+

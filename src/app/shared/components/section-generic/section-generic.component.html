@@ -1,10 +1,15 @@
-<div class="section--generic">
-    <h1 class="section--generic__title">{{title}}</h1>
+<div class="section-generic">
+    <h1 class="section-generic title">{{title}}</h1>
 
-    <div class="section--generic__player--zone">
-        <ul class="recipe--list" Class = "card">
-            <li *ngFor="let recipe of dataRecipes">                
+    <div class="section-generic recipes-zone">
+        <ul class="recipe-list">
+            <li class="recipe-item" *ngFor="let recipe of dataRecipes">
                 <app-card-recipe [recipe]="recipe"></app-card-recipe>
+            </li>
+            <li class="recipe-item">
+                <div class="add-recipe-card" (click)="addRecipe()">
+                    <i class="uil uil-plus"></i>
+                </div>
             </li>
         </ul>
     </div>

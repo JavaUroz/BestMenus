@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-side-bar',
@@ -11,7 +12,7 @@ export class SideBarComponent implements OnInit {
 
   customOptions: Array<any> = []
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private cookie: CookieService) { }
 
   ngOnInit(): void{
     this.mainMenu = [
@@ -27,23 +28,14 @@ export class SideBarComponent implements OnInit {
       },
       {
         name: 'Favorites',
-        icon: 'uil-chart',
+        icon: 'uil-favorite',
         router: ['/', 'favorites']
       }
     ]
-
-   
-
   }
 
-  goTo($event: any): void {    
-    this.router.navigate(['/', 'favorites'], {
-      queryParams:{
-        key1: 'value1',
-        key2: 'value2',
-        key3: 'value3'
-      }
-    })
-    console.log($event)
+  logout(): void {
+    this.cookie.delete('token')
+    this.router.navigate(['/auth/login'])
   }
 }

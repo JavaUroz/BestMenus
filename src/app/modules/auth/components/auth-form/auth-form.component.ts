@@ -11,10 +11,10 @@ export class AuthFormComponent {
   @Input() isRegister: boolean = false;
   @Output() formSubmitted = new EventEmitter<FormGroup>();
 
-  authForm: FormGroup;
+  authForm: FormGroup = new FormGroup ({});
 
   constructor(private fb: FormBuilder) {
-    this.authForm = this.fb.group({
+    this.authForm = new FormGroup({
       email: new FormControl('', [
         Validators.required,
         Validators.email,
@@ -25,14 +25,11 @@ export class AuthFormComponent {
         Validators.maxLength(12)
       ])
     })
-    if (this.isRegister) {
-      this.authForm.addControl('confirmPassword', this.fb.control('', [Validators.required]));
-    }
   }
   
   onSubmit() {
     if (this.authForm.valid) {
       this.formSubmitted.emit(this.authForm);
-    }
+    }   
   }
 }

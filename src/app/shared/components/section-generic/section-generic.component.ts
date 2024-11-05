@@ -9,4 +9,12 @@ import { RecipeModel } from '@core/models/recipe.model';
 export class SectionGenericComponent {
   @Input() title: string = ''
   @Input() dataRecipes: Array<RecipeModel> = []
+
+  constructor() {
+
+  }
+
+  addRecipe(): void {
+    
+  }
 }

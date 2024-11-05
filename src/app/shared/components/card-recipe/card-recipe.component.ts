@@ -17,7 +17,6 @@ export class CardRecipeComponent implements OnInit {
   }
 
   addToFavorites(recipe: RecipeModel):void{}
-
   editRecipe(recipe: RecipeModel):void{}
   deleteRecipe(recipe: RecipeModel):void{}
 

@@ -4,7 +4,6 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthModule } from './modules/auth/auth.module';
-//import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { CookieService } from 'ngx-cookie-service';
 import { InjectSessionInterceptor } from '@core/interceptors/inject-session.interceptor';
 
@@ -22,11 +21,9 @@ import { InjectSessionInterceptor } from '@core/interceptors/inject-session.inte
     CookieService,
     {
       provide: HTTP_INTERCEPTORS,
-      useClass: InjectSessionInterceptor, // usar la clase
-      multi: true // por si necesitamos usar varios interceptores
+      useClass: InjectSessionInterceptor,
+      multi: true
     }
-  
-    // provideAnimationsAsync()
   ],
   bootstrap: [AppComponent]
 })

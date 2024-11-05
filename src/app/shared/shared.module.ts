@@ -13,22 +13,22 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 // import { HeaderUserComponent } from './components/header-user/header-user.component';
 import { CardRecipeComponent } from './components/card-recipe/card-recipe.component';
 import { SectionGenericComponent } from './components/section-generic/section-generic.component';
+import { truncate } from 'fs';
+import { TruncatePipe } from './pipe/truncate.pipe';
+import { ImgBrokenDirective } from './directives/img-broken.directive';
 // import { PlayListHeaderComponent } from './components/play-list-header/play-list-header.component';
 // import { PlayListBodyComponent } from './components/play-list-body/play-list-body.component';
-// import { OrderListPipe } from './pipe/order-list.pipe';
-// import { ImgBrokenDirective } from './directives/img-broken.directive';
 
 @NgModule({
   declarations: [
     SideBarComponent,
-    // MediaPlayerComponent,
     // HeaderUserComponent,
     CardRecipeComponent,
     SectionGenericComponent,
     // PlayListHeaderComponent,
     // PlayListBodyComponent,
-    // OrderListPipe,
-    // ImgBrokenDirective
+    TruncatePipe,
+    ImgBrokenDirective
   ],
   imports: [
     CommonModule,
@@ -51,14 +51,13 @@ import { SectionGenericComponent } from './components/section-generic/section-ge
     MatCardModule,
     MatButtonModule,
     MatFormFieldModule,
-    // MediaPlayerComponent,
     // HeaderUserComponent,
     CardRecipeComponent,
     SectionGenericComponent,
     // PlayListHeaderComponent,
     // PlayListBodyComponent,
-    // OrderListPipe,
-    // ImgBrokenDirective
+    TruncatePipe,
+    ImgBrokenDirective
   ]
 })
 export class SharedModule { }

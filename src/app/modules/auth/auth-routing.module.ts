@@ -10,7 +10,7 @@ const routes: Routes = [
     component: LoginPageComponent
   },
   {
-    path:'signup', //http://localhost:4200/auth/signup
+    path:'register', //http://localhost:4200/auth/register
     component: RegisterPageComponent
   },
   {

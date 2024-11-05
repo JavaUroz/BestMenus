@@ -1,27 +1,20 @@
-<div class="card-recipe recipe">
-    <img appImgBroken [src]="recipe.imagePath" alt="" class="cover">
-    <div class="content-recipe">
-        <div class="title-recipe">{{recipe.name}}</div>
-        <div class="sub-title-recipe">{{recipe.description}}</div>
-    </div>
-    <div class="buttons-recipe">
-        <button (click)="deleteRecipe(recipe)" *ngIf="true" class="play-btn">
-            <i class="uil " [ngClass]="{'uil-play':true}"></i>
-        </button>
-        <button *ngIf="false" class="play-btn">
-            <i class="uil uil-play"></i>
-        </button>
-        <button (click)="addToFavorites(recipe)" *ngIf="true" class="play-btn">
-            <i class="uil " [ngClass]="{'uil-play':true}"></i>
-        </button>
-        <button *ngIf="false" class="play-btn">
-            <i class="uil uil-play"></i>
-        </button>
-        <button (click)="editRecipe(recipe)" *ngIf="true" class="play-btn">
-            <i class="uil " [ngClass]="{'uil-play':true}"></i>
-        </button>
-        <button *ngIf="false" class="play-btn">
-            <i class="uil uil-play"></i>
-        </button>
-    </div>
+<div class="card-recipe recipe" fxLayout="row" fxLayoutAlign="center center">
+    <mat-card class="recipe-card">
+        <img mat-card-image appImgBroken [src]="recipe.imagePath" alt="{{recipe.name}}" class="cover">
+        <mat-card-content>
+            <div class="title-recipe">{{recipe.name | truncate:29}}</div>
+            <div class="sub-title-recipe">{{recipe.description | truncate:32}}</div>
+        </mat-card-content>
+        <mat-card-actions>            
+            <button mat-button (click)="addToFavorites(recipe)" class="play-btn">
+                <i class="uil uil-heart"></i>
+            </button>
+            <button mat-button (click)="editRecipe(recipe)" class="play-btn">
+                <i class="uil uil-edit"></i>
+            </button>
+            <button mat-button (click)="deleteRecipe(recipe)" class="play-btn">
+                <i class="uil uil-trash"></i>
+            </button>
+        </mat-card-actions>
+    </mat-card>
 </div>
