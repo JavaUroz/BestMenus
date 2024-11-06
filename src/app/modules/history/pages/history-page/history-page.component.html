@@ -1,5 +1,4 @@
-<div class="history-page">
-    <p>History Page</p>
-    <!-- <app-search (callbackData)="receiveData($event)"></app-search>
-    <app-play-list-body [tracks]="listResults$ | async"></app-play-list-body> -->
+<div class="history-page">    
+    <app-search (callbackData)="getData($event)"></app-search>
+    <app-recipes-list-body [recipes]="results$ | async"></app-recipes-list-body>
 </div>

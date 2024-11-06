@@ -19,13 +19,10 @@ export class SettingService {
   }
 
   getRecipes(): Observable<RecipeModel[]> {
-    return this.http.get<RecipeModel[]>(this.apiUrl, { headers: this.getAuthHeaders() });
+    const token = this.cookieService.get('token');
+    return this.http.get<RecipeModel[]>(`${this.apiUrl}/recipes/get?auth=${token}`);
   }
-
-  getRecipeById(id: number): Observable<RecipeModel> {
-    return this.http.get<RecipeModel>(`${this.apiUrl}/${id}`, { headers: this.getAuthHeaders() });
-  }
-
+  
   createRecipe(recipe: RecipeModel): Observable<RecipeModel> {
     console.log(recipe)
     const token = this.cookieService.get('token');

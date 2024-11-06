@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RecipeModel } from '@core/models/recipe.model';
-import { RecipeService } from '@shared/services/recipes.service';
+import { SettingService } from '@core/settings/setting.service';
 import { CookieService } from 'ngx-cookie-service';
 
 @Component({
@@ -12,7 +12,7 @@ export class RecipesPageComponent {
   recipes: Array<RecipeModel> = []
 
 
-  constructor(private recipeService: RecipeService, private cookie: CookieService) { 
+  constructor(private settingService: SettingService, private cookie: CookieService) { 
     
   }
 
@@ -21,7 +21,7 @@ export class RecipesPageComponent {
   }
 
   loadDataAll(): void{
-    this.recipeService.getRecipes$()
+    this.settingService.getRecipes()
       .subscribe((response: Array<any>) => {
         this.recipes = response
     })

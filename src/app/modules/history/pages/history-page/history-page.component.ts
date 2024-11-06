@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RecipeModel } from '@core/models/recipe.model';
-import { SearchService } from '@modules/history/services/search.service';
+import { SettingService } from '@core/settings/setting.service';
 import { Observable, of } from 'rxjs';
 
 @Component({
@@ -9,14 +9,16 @@ import { Observable, of } from 'rxjs';
   styleUrl: './history-page.component.css'
 })
 export class HistoryPageComponent implements OnInit {
-  listResults$: Observable<any> = of([])
-  constructor(private searchService: SearchService){}
+  results$: Observable<any> = of([])
+  constructor(private settingService: SettingService){}
 
   ngOnInit(): void {
     
   }
 
-  // receiveData(event: string): void {
-  //   this.listResults$ = this.searchService.searchTrucks$(event)    
-  // }
+  getData(event: string): void {
+    console.log(event)
+    console.log(this.results$ = this. settingService.getRecipes())
+    this.results$ = this. settingService.getRecipes()
+  }
 }

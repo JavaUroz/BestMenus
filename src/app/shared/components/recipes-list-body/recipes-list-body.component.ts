@@ -1,14 +1,14 @@
 import { NgFor, NgTemplateOutlet } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
-import { TracksModel } from '@core/models/recipe.model';
+import { RecipeModel } from '@core/models/recipe.model';
 
 @Component({
-  selector: 'app-play-list-body',
-  templateUrl: './play-list-body.component.html',
-  styleUrl: './play-list-body.component.css'
+  selector: 'app-recipes-list-body',
+  templateUrl: './recipes-list-body.component.html',
+  styleUrl: './recipes-list-body.component.css'
 })
-export class PlayListBodyComponent implements OnInit{
-  @Input() tracks: Array<TracksModel> = []
+export class RecipesListBodyComponent implements OnInit{
+  @Input() recipes: Array<RecipeModel> = []
   optionSort:{property:string | null, order: string} = {property: null, order: 'asc'}
 
   constructor() { }

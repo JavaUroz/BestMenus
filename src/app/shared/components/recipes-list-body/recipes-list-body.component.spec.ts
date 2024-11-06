@@ -1,18 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RecipesListBodyComponent } from './recipes-list-body.component';
 
-import { MediaPlayerComponent } from './media-player.component';
-
-describe('MediaPlayerComponent', () => {
-  let component: MediaPlayerComponent;
-  let fixture: ComponentFixture<MediaPlayerComponent>;
+describe('RecipesListBodyComponent', () => {
+  let component: RecipesListBodyComponent;
+  let fixture: ComponentFixture<RecipesListBodyComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [MediaPlayerComponent]
+      imports: [RecipesListBodyComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(MediaPlayerComponent);
+    fixture = TestBed.createComponent(RecipesListBodyComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -3,7 +3,6 @@ import { MatDialog } from '@angular/material/dialog';
 import { RecipeModel } from '@core/models/recipe.model';
 import { SettingService } from '@core/settings/setting.service';
 import { AddRecipeComponent } from '@modules/recipes/components/add/add-recipe.component';
-import { RecipeService } from '@shared/services/recipes.service';
 import { RecipeDetailModalComponent } from '../recipe-detail/recipe-detail-modal/recipe-detail-modal.component';
 
 @Component({

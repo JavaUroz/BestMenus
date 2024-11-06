@@ -17,6 +17,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { RecipeDetailModalComponent } from './components/recipe-detail/recipe-detail-modal/recipe-detail-modal.component';
 import { AddRecipeComponent } from '@modules/recipes/components/add/add-recipe.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { RecipesListBodyComponent } from './components/recipes-list-body/recipes-list-body.component';
+import { OrderListPipe } from './pipe/order-list.pipe';
 
 @NgModule({
   declarations: [
@@ -25,8 +27,10 @@ import { ReactiveFormsModule } from '@angular/forms';
     CardRecipeComponent,
     SectionGenericComponent,
     TruncatePipe,
+    OrderListPipe,
     ImgBrokenDirective,
-    AddRecipeComponent
+    AddRecipeComponent,
+    RecipesListBodyComponent
   ],
   imports: [
     CommonModule,
@@ -55,7 +59,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     CardRecipeComponent,
     SectionGenericComponent,
     TruncatePipe,
-    ImgBrokenDirective
+    OrderListPipe,
+    ImgBrokenDirective,
+    RecipesListBodyComponent
   ]
 })
 export class SharedModule { }
