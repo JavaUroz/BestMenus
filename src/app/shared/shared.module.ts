@@ -13,22 +13,24 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 // import { HeaderUserComponent } from './components/header-user/header-user.component';
 import { CardRecipeComponent } from './components/card-recipe/card-recipe.component';
 import { SectionGenericComponent } from './components/section-generic/section-generic.component';
-import { truncate } from 'fs';
 import { TruncatePipe } from './pipe/truncate.pipe';
 import { ImgBrokenDirective } from './directives/img-broken.directive';
+import { MatDialogModule } from '@angular/material/dialog';
+import { RecipeDetailModalComponent } from './components/recipe-detail/recipe-detail-modal/recipe-detail-modal.component';
 // import { PlayListHeaderComponent } from './components/play-list-header/play-list-header.component';
 // import { PlayListBodyComponent } from './components/play-list-body/play-list-body.component';
 
 @NgModule({
   declarations: [
     SideBarComponent,
-    // HeaderUserComponent,
+    RecipeDetailModalComponent,
     CardRecipeComponent,
     SectionGenericComponent,
     // PlayListHeaderComponent,
     // PlayListBodyComponent,
     TruncatePipe,
-    ImgBrokenDirective
+    ImgBrokenDirective,
+    
   ],
   imports: [
     CommonModule,
@@ -39,8 +41,8 @@ import { ImgBrokenDirective } from './directives/img-broken.directive';
     MatDividerModule,
     MatCardModule,
     MatButtonModule,
-    MatFormFieldModule
-    
+    MatFormFieldModule,
+    MatDialogModule    
   ],
   exports: [
     SideBarComponent,
@@ -51,7 +53,6 @@ import { ImgBrokenDirective } from './directives/img-broken.directive';
     MatCardModule,
     MatButtonModule,
     MatFormFieldModule,
-    // HeaderUserComponent,
     CardRecipeComponent,
     SectionGenericComponent,
     // PlayListHeaderComponent,

@@ -15,7 +15,6 @@ export class RecipeService {
     this.token = this.cookieService.get('token')
   }
   getRecipes$(): Observable<RecipeModel[]> {
-    console.log(`${this.apiUrl}/recipes/get?auth=${this.token}`)
     return this.http.get<RecipeModel[]>(`${this.apiUrl}/recipes/get?auth=${this.token}`);
   }
   

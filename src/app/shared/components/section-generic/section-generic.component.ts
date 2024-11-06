@@ -1,5 +1,7 @@
 import { Component, Input } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { RecipeModel } from '@core/models/recipe.model';
+import { RecipeDetailModalComponent } from '../recipe-detail/recipe-detail-modal/recipe-detail-modal.component'; 
 
 @Component({
   selector: 'app-section-generic',
@@ -10,8 +12,15 @@ export class SectionGenericComponent {
   @Input() title: string = ''
   @Input() dataRecipes: Array<RecipeModel> = []
 
-  constructor() {
+  constructor(public dialog: MatDialog) {
 
+  }
+
+  viewDetails(recipe: RecipeModel) {
+    this.dialog.open(RecipeDetailModalComponent, {
+      data: {recipe},
+      width: '800px'
+    });
   }
 
   addRecipe(): void {

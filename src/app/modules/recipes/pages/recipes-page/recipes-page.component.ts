@@ -23,7 +23,6 @@ export class RecipesPageComponent {
   loadDataAll(): void{
     this.recipeService.getRecipes$()
       .subscribe((response: Array<any>) => {
-        console.log(response)
         this.recipes = response
     })
   }

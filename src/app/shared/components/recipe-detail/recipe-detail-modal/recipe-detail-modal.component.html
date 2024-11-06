@@ -1,0 +1,28 @@
+<mat-dialog-content class="recipe-detail-modal">  
+    <img [src]="recipe.imagePath" alt="{{ recipe.name }}" class="recipe-image">
+    <mat-card-content>
+        <div class="title-recipe">{{recipe.name}}</div>
+        <div class="sub-title-recipe">{{recipe.description}}</div>
+    </mat-card-content>
+    <mat-card-content>
+        <div class="title-ingredients">Ingredients list</div>
+        <table class="ingredients-table">
+            <thead>
+                <tr>
+                    <th>Quantity</th>
+                    <th>Ingredient</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let ingredient of recipe.ingredients">
+                    <td>{{ ingredient.amount }}</td>
+                    <td>{{ ingredient.name }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </mat-card-content>      
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Close</button>
+</mat-dialog-actions>

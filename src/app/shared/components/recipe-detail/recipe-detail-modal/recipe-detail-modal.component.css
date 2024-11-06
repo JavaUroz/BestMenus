@@ -1,0 +1,53 @@
+.mat-dialog-container {
+    height: initial;
+    overflow: initial;
+    border-radius: 1px;
+  }
+
+.mat-dialog-content {
+    overflow: auto;
+    border-radius: 1px;
+  }
+
+.recipe-detail-modal {
+    
+    text-align: center;
+}
+
+.recipe-image {
+    width: 100%;
+    border-radius: 8px;
+    margin: 1rem 0;
+}
+
+.title-recipe {
+    font-weight: bold;
+    font-size: 2rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5em;
+}
+
+.sub-title-recipe {
+    color: #666;
+    font-size: .9em;
+    margin-bottom: 0.5rem;
+}
+.title-ingredients {
+    font-weight: bolder;
+    margin-top: 2rem;
+    color: #fc15b7;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+.ingredients-table {
+    width: 100%;
+}
+
+.ingredients-table th, .ingredients-table td {
+    padding: 8px;
+    text-align: center;
+}
+.ingredients-table th {
+    background-color: #2c2b2b;
+    font-weight: bold;
+}
