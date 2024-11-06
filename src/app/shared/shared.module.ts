@@ -9,16 +9,14 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
-// import { MediaPlayerComponent } from './components/media-player/media-player.component';
-// import { HeaderUserComponent } from './components/header-user/header-user.component';
 import { CardRecipeComponent } from './components/card-recipe/card-recipe.component';
 import { SectionGenericComponent } from './components/section-generic/section-generic.component';
 import { TruncatePipe } from './pipe/truncate.pipe';
 import { ImgBrokenDirective } from './directives/img-broken.directive';
 import { MatDialogModule } from '@angular/material/dialog';
 import { RecipeDetailModalComponent } from './components/recipe-detail/recipe-detail-modal/recipe-detail-modal.component';
-// import { PlayListHeaderComponent } from './components/play-list-header/play-list-header.component';
-// import { PlayListBodyComponent } from './components/play-list-body/play-list-body.component';
+import { AddRecipeComponent } from '@modules/recipes/components/add/add-recipe.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -26,11 +24,9 @@ import { RecipeDetailModalComponent } from './components/recipe-detail/recipe-de
     RecipeDetailModalComponent,
     CardRecipeComponent,
     SectionGenericComponent,
-    // PlayListHeaderComponent,
-    // PlayListBodyComponent,
     TruncatePipe,
     ImgBrokenDirective,
-    
+    AddRecipeComponent
   ],
   imports: [
     CommonModule,
@@ -42,7 +38,9 @@ import { RecipeDetailModalComponent } from './components/recipe-detail/recipe-de
     MatCardModule,
     MatButtonModule,
     MatFormFieldModule,
-    MatDialogModule    
+    MatDialogModule,    
+    ReactiveFormsModule,
+    MatDialogModule
   ],
   exports: [
     SideBarComponent,
@@ -53,10 +51,9 @@ import { RecipeDetailModalComponent } from './components/recipe-detail/recipe-de
     MatCardModule,
     MatButtonModule,
     MatFormFieldModule,
+    MatDialogModule,
     CardRecipeComponent,
     SectionGenericComponent,
-    // PlayListHeaderComponent,
-    // PlayListBodyComponent,
     TruncatePipe,
     ImgBrokenDirective
   ]

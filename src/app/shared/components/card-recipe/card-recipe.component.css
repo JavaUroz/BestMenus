@@ -6,6 +6,10 @@
     justify-content: space-between;
 }
 
+mat-card-content img {
+    width: 100%;
+}
+
 .cover {
     height: 200px; /* Ajusta la altura de la imagen */
     object-fit: cover; /* Asegura que la imagen cubra el área */

@@ -9,7 +9,6 @@ import { CookieService } from 'ngx-cookie-service';
 })
 export class SideBarComponent implements OnInit {
   mainMenu: Array<any> = []
-
   customOptions: Array<any> = []
 
   constructor(private router: Router, private cookie: CookieService) { }

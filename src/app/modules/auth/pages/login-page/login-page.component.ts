@@ -28,7 +28,7 @@ export class LoginPageComponent implements OnInit{
       this.authService.login(email, password)
         .subscribe(responseOk => {
           const { idToken } = responseOk;
-          this.cookie.set('token', idToken, 15/(24*60), '/');
+          this.cookie.set('token', idToken, 1, '/');
           this.router.navigate(['/','recipes']);
         }, error => {
           this.errorSession = true;

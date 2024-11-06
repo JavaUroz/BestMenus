@@ -25,10 +25,9 @@ export class SessionGuard implements CanActivate {
       if (!token){
         this.router.navigate(['/', 'auth'])
       }  
-      return token
-      
+      return token      
     } catch(e) {
-      console.log('🧧Ocurrió un Error🧧', e)
+      console.log('Error:', e)
       return false
     }    
   }

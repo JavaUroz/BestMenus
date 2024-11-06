@@ -1,7 +1,7 @@
 <div class="card-recipe recipe" fxLayout="row" fxLayoutAlign="center center">
-    <mat-card class="recipe-card">
-        <img mat-card-image appImgBroken [src]="recipe.imagePath" alt="{{recipe.name}}" class="cover">
-        <mat-card-content>
+    <mat-card class="recipe-card">        
+        <mat-card-content (click)="viewDetails(recipe)">
+            <img mat-card-image appImgBroken [src]="recipe.imagePath" alt="{{recipe.name}}" class="cover">
             <div class="title-recipe">{{recipe.name | truncate:29}}</div>
             <div class="sub-title-recipe">{{recipe.description | truncate:32}}</div>
         </mat-card-content>

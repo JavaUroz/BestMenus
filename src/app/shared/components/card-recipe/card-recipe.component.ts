@@ -1,6 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { RecipeModel } from '@core/models/recipe.model';
+import { SettingService } from '@core/settings/setting.service';
+import { AddRecipeComponent } from '@modules/recipes/components/add/add-recipe.component';
 import { RecipeService } from '@shared/services/recipes.service';
+import { RecipeDetailModalComponent } from '../recipe-detail/recipe-detail-modal/recipe-detail-modal.component';
 
 @Component({
   selector: 'app-card-recipe',
@@ -8,21 +12,46 @@ import { RecipeService } from '@shared/services/recipes.service';
   styleUrl: './card-recipe.component.css'
 })
 export class CardRecipeComponent implements OnInit {
-  @Input() recipe: RecipeModel = {_id:0, name:'', description:'', imagePath:''};
+  @Input() recipe: RecipeModel = {_id:'0', name:'', description:'', imagePath:''};
 
-  constructor(private recipeService: RecipeService) { }
+  constructor(public dialog: MatDialog, private settingService: SettingService) { }
 
   ngOnInit(): void {
     
   }
 
+  editRecipe(recipe: RecipeModel) {
+    const dialogRef = this.dialog.open(AddRecipeComponent, {
+      data: { recipe }  // Pasamos la receta al modal
+    });
+  
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        // Actualizar la lista de recetas si es necesario
+      }
+    });
+  }
+
   addToFavorites(recipe: RecipeModel):void{}
-  editRecipe(recipe: RecipeModel):void{}
-  deleteRecipe(recipe: RecipeModel):void{}
+  
+  deleteRecipe(recipe: RecipeModel) {
+    const confirmDelete = confirm('Are you sure you want to delete this recipe?');
+    if (confirmDelete) {
+      this.settingService.deleteRecipe(recipe._id).subscribe(
+        (response) => {
+          alert('Recipe deleted successfully!')
+        },
+        (error) => {
+          console.error('Error:', error);
+        }
+      );
+    }
+  }
 
-
-
-  // sendRecipe(recipe: RecipeModel):void{
-  //   this.recipeService.recipeInfo$.next(recipe)
-  // }
+  viewDetails(recipe: RecipeModel) {
+    this.dialog.open(RecipeDetailModalComponent, {
+      data: {recipe},
+      width: '800px'
+    });
+  }
 }

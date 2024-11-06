@@ -1,5 +1,4 @@
-/* You can add global styles to this file, and also import other style files */
-:root {
+/* :root {
     --color-1: #ce76bb;
     --color-2: #323232;
     --color-3: #000000;
@@ -23,7 +22,7 @@ body {
     background-color: var(--color-3);
     font-family: var(--font-family-1);
     font-size: var(--font-size-1);
-    color: var(--color-4);
+    color: #FFFFFF
 }
 
 input,
@@ -35,3 +34,5 @@ button {
 button:disabled {
     opacity: .5;
 }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; } */

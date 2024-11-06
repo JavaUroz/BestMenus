@@ -1,3 +1,76 @@
-<div class="add-recipe-component">
-    <!-- <input (ngModelChange)="callSearch($event)" [(ngModel)]="src" type="text" placeholder="Artistas, canciones y más"> -->
+<div class="dialog-title">{{ isEditMode ? 'Edit recipe' : 'Add new recipe' }}</div>
+
+<div class="dialog-content">
+  <form [formGroup]="recipeForm" (ngSubmit)="onSubmit()">
+    
+    <!-- Campo Nombre de la Receta y Descripción (en una fila) -->
+    <div class="form-row">
+      <div class="form-field">
+        <label for="name">Title</label>
+        <input id="name" formControlName="name" type="text" required />
+        <span
+          class="error-message"
+          *ngIf="recipeForm.get('name')?.invalid && recipeForm.get('name')?.touched"
+          >The name is required</span>
+      </div>
+
+      <div class="form-field">
+        <label for="description">Description</label>
+        <textarea id="description" formControlName="description" required></textarea>
+        <span
+          class="error-message"
+          *ngIf="recipeForm.get('description')?.invalid && recipeForm.get('description')?.touched"
+          >The description is required</span>
+      </div>
+    </div>
+
+    <!-- Campo Imagen -->
+    <div class="form-field">
+      <label for="imagePath">URL Image</label>
+      <input id="imagePath" formControlName="imagePath" type="text" required />
+      <span
+        class="error-message"
+        *ngIf="recipeForm.get('imagePath')?.invalid && recipeForm.get('imagePath')?.touched"
+        >The image is required</span>
+    </div>
+
+    <!-- Ingredientes -->
+    <div formArrayName="ingredients" class="ingredients-section">
+      <div *ngFor="let ingredient of ingredients.controls; let i = index" [formGroupName]="i" class="ingredient-item">
+        
+        <!-- Cantidad y Nombre del ingrediente (en una fila) -->
+        <div class="form-row">
+          <div class="form-field">
+            <label for="amount-{{i}}">Quantity</label>
+            <input id="amount-{{i}}" formControlName="amount" type="text" required />
+            <span
+              class="error-message"
+              *ngIf="ingredient.get('amount')?.invalid && ingredient.get('amount')?.touched"
+              >Quantity is required</span>
+          </div>
+
+          <div class="form-field">
+            <label for="name-{{i}}">Ingredient</label>
+            <input id="name-{{i}}" formControlName="name" type="text" required />
+            <span
+              class="error-message"
+              *ngIf="ingredient.get('name')?.invalid && ingredient.get('name')?.touched"
+              >Ingredient name is required</span>
+          </div>
+        </div>
+
+        <!-- Botón para eliminar ingrediente -->
+        <button type="button" class="remove-button" (click)="removeIngredient(i)">Delete ingredient</button>
+      </div>
+
+      <!-- Botón para agregar nuevo ingrediente -->
+      <button type="button" class="add-button" (click)="addIngredient()">Add ingredient</button>
+    </div>
+
+    <!-- Acciones del modal -->
+    <div class="dialog-actions">
+      <button type="button" (click)="close()">Cancel</button>
+      <button type="submit" (click)="onSubmit()" [disabled]="recipeForm.invalid">{{ isEditMode ? 'Edit' : 'Save' }}</button>
+    </div>
+  </form>
 </div>

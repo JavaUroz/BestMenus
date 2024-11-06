@@ -4,7 +4,7 @@
     <div class="section-generic recipes-zone">
         <ul class="recipe-list">
             <li class="recipe-item" *ngFor="let recipe of dataRecipes">
-                <app-card-recipe class="add-recipe-card" [recipe]="recipe" (click)="viewDetails(recipe)"></app-card-recipe>
+                <app-card-recipe class="add-recipe-card" [recipe]="recipe"></app-card-recipe>
             </li>
             <li class="recipe-item">
                 <div class="add-recipe-card" (click)="addRecipe()">
