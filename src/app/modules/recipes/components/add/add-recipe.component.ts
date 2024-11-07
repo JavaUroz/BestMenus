@@ -11,7 +11,7 @@ import { SettingService } from '@core/settings/setting.service';
 })
 export class AddRecipeComponent {
   recipeForm: FormGroup;
-  isEditMode: boolean = false; // Nueva variable para saber si estamos en modo de edición
+  isEditMode: boolean = false;
 
   constructor(
     private fb: FormBuilder, 
@@ -19,29 +19,24 @@ export class AddRecipeComponent {
     private dialogRef: MatDialogRef<AddRecipeComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
-
-    // Inicializamos el formulario
     this.recipeForm = this.fb.group({
       _id: '',
       name: ['', Validators.required],
       description: ['', Validators.required],
       imagePath: ['', Validators.required],
-      ingredients: this.fb.array([])  // FormArray para los ingredientes
+      ingredients: this.fb.array([])
     });
 
-    // Si estamos editando, inicializamos el formulario con los datos de la receta
     if (data && data.recipe) {
       this.isEditMode = true;
-      this.setFormValues(data.recipe); // Cargar los valores de la receta en el formulario
+      this.setFormValues(data.recipe);
     }
   }
 
-  // Acceder a los ingredientes
   get ingredients() {
     return this.recipeForm.get('ingredients') as FormArray;
   }
 
-  // Agregar un ingrediente
   addIngredient() {
     const ingredientForm = this.fb.group({
       amount: ['', Validators.required],
@@ -50,12 +45,10 @@ export class AddRecipeComponent {
     this.ingredients.push(ingredientForm);
   }
 
-  // Eliminar un ingrediente
   removeIngredient(index: number) {
     this.ingredients.removeAt(index);
   }
 
-  // Cargar los valores de la receta en el formulario
   setFormValues(recipe: RecipeModel) {
     this.recipeForm.patchValue({
       _id: recipe._id,
@@ -64,10 +57,10 @@ export class AddRecipeComponent {
       imagePath: recipe.imagePath
     });
 
-    // Cargar los ingredientes en el FormArray
+
     if (recipe.ingredients && recipe.ingredients.length > 0) {
       recipe.ingredients.forEach(ingredient => {
-        this.addIngredient();  // Primero agregamos un nuevo ingrediente al array
+        this.addIngredient();
         const ingredientForm = this.ingredients.at(this.ingredients.length - 1);
         ingredientForm.patchValue({
           amount: ingredient.amount,
@@ -77,13 +70,10 @@ export class AddRecipeComponent {
     }
   }
 
-  // Envio al backend
   onSubmit() {
     if (this.recipeForm.valid) {
       const recipeData: RecipeModel = this.recipeForm.value;
       if (this.isEditMode) {
-        console.log(recipeData)
-        console.log(recipeData._id)
         this.editRecipe(recipeData, recipeData._id);
       } else {
         this.createRecipe(recipeData);
@@ -91,34 +81,30 @@ export class AddRecipeComponent {
     }
   }
 
-  // Lógica para crear una receta
   createRecipe(recipe: RecipeModel) {
     this.settingService.createRecipe(recipe).subscribe(
       (response) => {
-        console.log('Receta creada', response);
-        this.dialogRef.close();  // Cierra el modal
+        alert('New recipe added!')
+        this.dialogRef.close();
       },
       (error) => {
-        console.error('Error al crear la receta', error);
+        console.error('Error while adding a new recipe!', error);
       }
     );
   }
 
-  // Lógica para actualizar una receta
   editRecipe(recipe: RecipeModel, id: string) {
-    console.log(id)
     this.settingService.editRecipe(recipe, id).subscribe(
       (response) => {
-        console.log('Receta actualizada', response);
-        this.dialogRef.close();  // Cierra el modal
+        alert('Recipe updated successfully.');
+        this.dialogRef.close();
       },
       (error) => {
-        console.error('Error al actualizar la receta', error);
+        console.error('Error while updating a recipe!', error);
       }
     );
   }
 
-  // Cerrar el modal
   close() {
     this.dialogRef.close();
   }

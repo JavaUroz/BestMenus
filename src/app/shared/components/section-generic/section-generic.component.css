@@ -24,7 +24,7 @@
     margin: 10px;
     width: 300px;
     height: 320px;
-    background-color: #3b3b3b;
+    background-color: #727272;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -36,16 +36,15 @@
 
 
 .add-recipe-card:hover {
-    background-color: #949494; /* Cambiar color de fondo al pasar el mouse */
+    background-color: #949494;
 }
 
 .add-recipe-card i {
-    font-size: 10rem; /* Tamaño del ícono */
-    color: #333; /* Color del ícono */
+    font-size: 10rem;
+    color: #d1d1d1;
 }
 
 .add-recipe-card:hover {
-    transform: scale(1.05); /* Zoom leve */
-    box-shadow: 0px 6px 15px rgba(219, 219, 219, 0.2); /* Sombra para resaltar */
+    transform: scale(1.05);
+    box-shadow: 0px 6px 15px rgba(219, 219, 219, 0.2);
 }
-

@@ -42,26 +42,16 @@ export class CardRecipeComponent implements OnInit {
     const index = favorites.findIndex((find: RecipeModel) => 
       find._id === recipe._id
     )
-    console.log(index)
-    console.log(index === -1)
 
     if(index === -1){
-      console.log('NO está en la lista')
       favorites.push(recipe)
     } else {
-      console.log('YA ESTA EN LA LISTA!!!')
       favorites.splice(index, 1)
     }
 
     localStorage.setItem('favoriteRecipes', JSON.stringify(favorites))
 
     this.isFavorite = !this.isFavorite
-    
-    console.log("Favorito?",this.isFavorite)
-    
-    console.log("Recetas favoritas",favorites)
-    
-    
   }
   
   deleteRecipe(recipe: RecipeModel) {
@@ -72,7 +62,7 @@ export class CardRecipeComponent implements OnInit {
           alert('Recipe deleted successfully!')
         },
         (error) => {
-          console.error('Error:', error);
+          console.error('Error while deleting recipe!', error);
         }
       );
     }

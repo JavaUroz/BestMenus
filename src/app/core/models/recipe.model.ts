@@ -4,6 +4,6 @@ export interface RecipeModel {
     _id: string;
     name: string;
     description: string;
-    imagePath: string;    
+    imagePath: string;
     ingredients?: IngredientModel[];
 }

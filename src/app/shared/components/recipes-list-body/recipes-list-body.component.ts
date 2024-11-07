@@ -1,5 +1,4 @@
-import { NgFor, NgTemplateOutlet } from '@angular/common';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { RecipeModel } from '@core/models/recipe.model';
 
 @Component({
@@ -7,15 +6,11 @@ import { RecipeModel } from '@core/models/recipe.model';
   templateUrl: './recipes-list-body.component.html',
   styleUrl: './recipes-list-body.component.css'
 })
-export class RecipesListBodyComponent implements OnInit{
+export class RecipesListBodyComponent {
   @Input() recipes: Array<RecipeModel> = []
   optionSort:{property:string | null, order: string} = {property: null, order: 'asc'}
 
   constructor() { }
-
-  ngOnInit(){
-
-  }
 
   changeSort(property: string): void {
     const { order } = this.optionSort
@@ -23,6 +18,5 @@ export class RecipesListBodyComponent implements OnInit{
       property,
       order: order === 'asc' ? 'desc' : 'asc'
     }
-    console.log(this.optionSort)
   }
 }

@@ -1,5 +1,5 @@
 .recipe-card {
-    width: 300px; /* Ajusta el ancho según tus necesidades */
+    width: 300px;
     margin: 10px;
     display: flex;
     flex-direction: column;
@@ -11,8 +11,8 @@ mat-card-content img {
 }
 
 .cover {
-    height: 200px; /* Ajusta la altura de la imagen */
-    object-fit: cover; /* Asegura que la imagen cubra el área */
+    height: 200px;
+    object-fit: cover;
 }
 
 .title-recipe {

@@ -12,9 +12,7 @@ export class RecipesPageComponent {
   recipes: Array<RecipeModel> = []
 
 
-  constructor(private settingService: SettingService, private cookie: CookieService) { 
-    
-  }
+  constructor(private settingService: SettingService, private cookie: CookieService) { }
 
   ngOnInit(): void {
     this.loadDataAll()

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RecipeModel } from '@core/models/recipe.model';
-import { FavoritesService } from '@modules/history/services/favorites.service';
+import { FavoritesService } from '@modules/favorites/services/favorites.service';
 
 @Component({
   selector: 'app-favorite-page',
@@ -15,7 +15,5 @@ export class FavoritePageComponent implements OnInit{
   ngOnInit(): void {
     this.favoritesService.getFavorites()
     this.favoriteRecipes = JSON.parse(localStorage.getItem('favoriteRecipes')||'[]')
-    console.log(this.favoriteRecipes)
   }
 }
-

@@ -5,7 +5,7 @@
             <div class="title-recipe">{{recipe.name | truncate:29}}</div>
             <div class="sub-title-recipe">{{recipe.description | truncate:32}}</div>
         </mat-card-content>
-        <mat-card-actions>            
+        <mat-card-actions>
             <button mat-button (click)="addToFavorites(recipe)" class="play-btn"> 
                 <i [ngClass]="isFavorite ? 'uis uis-star' : 'uil uil-star'"></i>
             </button>

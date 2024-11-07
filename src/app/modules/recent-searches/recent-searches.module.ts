@@ -1,23 +1,23 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HistoryRoutingModule } from './history-routing.module';
+import { RecentSearchRoutingModule } from './recent-searches-routing.module';
 import { SearchComponent } from './components/search/search.component';
-import { HistoryPageComponent } from './pages/history-page/history-page.component';
+import { RecentSearchesPageComponent } from './pages/recent-searches-page/recent-searches-page.component';
 import { SharedModule } from '@shared/shared.module';
 import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [
-    HistoryPageComponent,
+    RecentSearchesPageComponent,
     SearchComponent,
 
   ],
   imports: [
     CommonModule,
     SharedModule,
-    HistoryRoutingModule,
+    RecentSearchRoutingModule,
     FormsModule
   ]
 })
-export class HistoryModule { }
+export class RecentSearchModule { }

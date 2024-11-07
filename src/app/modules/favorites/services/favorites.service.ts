@@ -12,7 +12,6 @@ export class FavoritesService {
 
   getFavorites(): RecipeModel[] {
     let savedFavorites = localStorage.getItem('favoriteRecipes')
-    console.log(savedFavorites)
     return savedFavorites ? JSON.parse(savedFavorites) : [];
   }
 

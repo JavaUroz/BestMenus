@@ -4,57 +4,52 @@
   <form [formGroup]="recipeForm" (ngSubmit)="onSubmit()">
     
     <div class="form-row">
+      <!-- Title Field -->
       <div class="form-field">
         <label for="name">Title</label>
         <input id="name" formControlName="name" type="text" required />
-        <span
-          class="error-message"
-          *ngIf="recipeForm.get('name')?.invalid && recipeForm.get('name')?.touched"
-          >The name is required</span>
+        <span *ngIf="recipeForm.get('name')?.invalid && recipeForm.get('name')?.touched" class="error-message">
+          The name is required
+        </span>
       </div>
 
+      <!-- Description Field -->
       <div class="form-field">
         <label for="description">Description</label>
         <textarea id="description" formControlName="description" required></textarea>
-        <span
-          class="error-message"
-          *ngIf="recipeForm.get('description')?.invalid && recipeForm.get('description')?.touched"
-          >The description is required</span>
+        <span *ngIf="recipeForm.get('description')?.invalid && recipeForm.get('description')?.touched" class="error-message">
+          The description is required
+        </span>
       </div>
     </div>
 
-    <!-- Campo Imagen -->
+    <!-- Image URL Field -->
     <div class="form-field">
       <label for="imagePath">URL Image</label>
       <input id="imagePath" formControlName="imagePath" type="text" required />
-      <span
-        class="error-message"
-        *ngIf="recipeForm.get('imagePath')?.invalid && recipeForm.get('imagePath')?.touched"
-        >The image is required</span>
+      <span *ngIf="recipeForm.get('imagePath')?.invalid && recipeForm.get('imagePath')?.touched" class="error-message">
+        The image is required
+      </span>
     </div>
 
-    <!-- Ingredientes -->
+    <!-- Ingredients Section -->
     <div formArrayName="ingredients" class="ingredients-section">
       <div *ngFor="let ingredient of ingredients.controls; let i = index" [formGroupName]="i" class="ingredient-item">
-        
-        <!-- Cantidad y Nombre del ingrediente (en una fila) -->
         <div class="form-row">
           <div class="form-field">
             <label for="amount-{{i}}">Quantity</label>
             <input id="amount-{{i}}" formControlName="amount" type="text" required />
-            <span
-              class="error-message"
-              *ngIf="ingredient.get('amount')?.invalid && ingredient.get('amount')?.touched"
-              >Quantity is required</span>
+            <span *ngIf="ingredient.get('amount')?.invalid && ingredient.get('amount')?.touched" class="error-message">
+              Quantity is required
+            </span>
           </div>
 
           <div class="form-field">
             <label for="name-{{i}}">Ingredient</label>
             <input id="name-{{i}}" formControlName="name" type="text" required />
-            <span
-              class="error-message"
-              *ngIf="ingredient.get('name')?.invalid && ingredient.get('name')?.touched"
-              >Ingredient name is required</span>
+            <span *ngIf="ingredient.get('name')?.invalid && ingredient.get('name')?.touched" class="error-message">
+              Ingredient name is required
+            </span>
           </div>
 
           <div class="form-field">
@@ -64,15 +59,15 @@
           </div>
         </div>
       </div>
-
-      <!-- Botón para agregar nuevo ingrediente -->
+      
+      <!-- Add Ingredient Button -->
       <button type="button" class="add-button" (click)="addIngredient()">Add ingredient</button>
     </div>
 
-    <!-- Acciones del modal -->
+    <!-- Dialog Actions -->
     <div class="dialog-actions">
       <button type="button" (click)="close()">Cancel</button>
-      <button type="submit" (click)="onSubmit()" [disabled]="recipeForm.invalid">{{ isEditMode ? 'Edit' : 'Save' }}</button>
+      <button type="submit" [disabled]="recipeForm.invalid">{{ isEditMode ? 'Edit' : 'Save' }}</button>
     </div>
   </form>
 </div>

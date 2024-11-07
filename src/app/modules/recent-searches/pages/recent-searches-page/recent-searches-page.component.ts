@@ -4,11 +4,11 @@ import { SettingService } from '@core/settings/setting.service';
 import { Observable, of, map } from 'rxjs';
 
 @Component({
-  selector: 'app-history-page',
-  templateUrl: './history-page.component.html',
-  styleUrl: './history-page.component.css'
+  selector: 'app-recent-searches-page',
+  templateUrl: './recent-searches-page.component.html',
+  styleUrl: './recent-searches-page.component.css'
 })
-export class HistoryPageComponent {
+export class RecentSearchesPageComponent {
   results$: Observable<any> = of([])
 
   constructor(private settingService: SettingService){}

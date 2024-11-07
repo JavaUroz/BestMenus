@@ -7,8 +7,8 @@ const routes: Routes = [
     loadChildren: () => import('@modules/recipes/recipes.module').then(m => m.RecipesModule)
   },
   {
-    path: 'history',
-    loadChildren: () => import('@modules/history/history.module').then(m => m.HistoryModule)
+    path: 'recent-searches',
+    loadChildren: () => import('@modules/recent-searches/recent-searches.module').then(m => m.RecentSearchModule)
   },
   {
     path: 'favorites',

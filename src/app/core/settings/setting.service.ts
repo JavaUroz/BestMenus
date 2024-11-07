@@ -13,24 +13,17 @@ export class SettingService {
 
   constructor(private http: HttpClient, private cookieService: CookieService) {}
 
-  private getAuthHeaders(): HttpHeaders {
-    const token = this.cookieService.get('token');
-    return new HttpHeaders().set('Authorization', `Bearer ${token}`);
-  }
-
   getRecipes(): Observable<RecipeModel[]> {
     const token = this.cookieService.get('token');
     return this.http.get<RecipeModel[]>(`${this.apiUrl}/recipes/get?auth=${token}`);
   }
   
   createRecipe(recipe: RecipeModel): Observable<RecipeModel> {
-    console.log(recipe)
     const token = this.cookieService.get('token');
     return this.http.post<RecipeModel>(`${this.apiUrl}/recipes/add?auth=${token}`, recipe)
   }
 
   editRecipe(recipe: RecipeModel, id: string): Observable<RecipeModel> {
-    console.log(id)
     const token = this.cookieService.get('token');
     return this.http.put<RecipeModel>(`${this.apiUrl}/recipes/edit/${id}?auth=${token}`, recipe) 
   }
