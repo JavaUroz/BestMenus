@@ -1,20 +1,3 @@
-
-<div class="recipe-list-body">
-    <ul class="recipe-list-table-header">
-        <li (click)="changeSort('name')">Recipe</li>
-        <li (click)="changeSort('album')">Description</li>
-        <li>Photo</li>
-        <li><i class="uil uil-clock-eight"></i></li>
-    </ul>
-    <ul class="reciè-list-rows" *ngFor="let item of recipes | orderList:optionSort.property: optionSort.order">
-        <li class="recipe-name-opacity">
-            {{item.name}}
-        </li>
-        <li class="recipe-name-opacity">
-            {{item.description}}
-        </li>
-        <li class="recipe-name-opacity">
-            {{item.imagePath}}
-        </li>
-    </ul>
+<div class="recipe-cards-container">
+    <app-section-generic [dataRecipes]="recipes" [showAddRecipeCard]="false"></app-section-generic>
 </div>

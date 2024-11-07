@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RecipeModel } from '@core/models/recipe.model';
 import { SettingService } from '@core/settings/setting.service';
-import { Observable, of } from 'rxjs';
+import { Observable, of, map } from 'rxjs';
 
 @Component({
   selector: 'app-history-page',
@@ -17,8 +17,13 @@ export class HistoryPageComponent implements OnInit {
   }
 
   getData(event: string): void {
-    console.log(event)
-    console.log(this.results$ = this. settingService.getRecipes())
-    this.results$ = this. settingService.getRecipes()
+    this.results$ = this.settingService.getRecipes().pipe(
+      map((recipes: RecipeModel[]) => 
+        recipes.filter(recipe => 
+          recipe.name.toLowerCase().includes(event.toLowerCase()) ||
+          recipe.description.toLowerCase().includes(event.toLowerCase())
+        )
+      )
+    )
   }
 }

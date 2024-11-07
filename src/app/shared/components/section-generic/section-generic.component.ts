@@ -10,6 +10,7 @@ import { AddRecipeComponent } from '@modules/recipes/components/add/add-recipe.c
 })
 export class SectionGenericComponent {
   @Input() title: string = ''
+  @Input() showAddRecipeCard = true;
   @Input() dataRecipes: Array<RecipeModel> = []
 
   constructor(public dialog: MatDialog) {

@@ -6,7 +6,7 @@
             <li class="recipe-item" *ngFor="let recipe of dataRecipes">
                 <app-card-recipe class="add-recipe-card" [recipe]="recipe"></app-card-recipe>
             </li>
-            <li class="recipe-item">
+            <li *ngIf="showAddRecipeCard" class="recipe-item">
                 <div class="add-recipe-card" (click)="addRecipe()">
                     <i class="uil uil-plus"></i>
                 </div>
