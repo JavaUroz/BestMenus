@@ -9,9 +9,7 @@ import { Observable } from 'rxjs';
 
 export class SessionGuard implements CanActivate {
 
-  constructor(private cookie: CookieService, private router: Router){
-
-  }
+  constructor(private cookie: CookieService, private router: Router){}
 
   canActivate(
   route: ActivatedRouteSnapshot, 
@@ -21,14 +19,14 @@ export class SessionGuard implements CanActivate {
 
   checkCookieSession(): boolean{
     try{
-      const token: boolean = this.cookie.check('token')      
-      if (!token){
+      const hasToken: boolean = this.cookie.check('token')
+      if (!hasToken){
         this.router.navigate(['/', 'auth'])
-      }  
-      return token      
+      }
+      return hasToken
     } catch(e) {
       console.log('Error:', e)
       return false
-    }    
+    }
   }
 }

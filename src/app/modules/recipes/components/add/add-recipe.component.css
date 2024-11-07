@@ -10,7 +10,7 @@
   /* Contenido del diálogo */
   .dialog-content {
     padding: 20px;
-    background-color: #f9f9f9;
+    background-color: #ffffff;
     border-radius: 8px;
     max-width: 800px;
     max-height: 500px;
@@ -23,12 +23,7 @@
     margin-bottom: 15px;
     padding-bottom: 1rem;
   }
-  
-  .form-row .form-field {
-    flex: 1;
-  }
-  
-  /* Campos del formulario */
+    
   .form-field {
     margin-inline: 1rem;
     display: flex;
@@ -38,6 +33,10 @@
   .form-field label {
     font-weight: bold;
     margin-bottom: 5px;
+  }
+
+  .form-field button {
+    flex-wrap: wrap;
   }
   
   .form-field input,
@@ -93,8 +92,10 @@
   
   button.remove-button {
     background-color: #f44336;
-    color: #fff;
-    margin-top: 5px;
+    justify-content: center;
+    align-items: center;
+    color: #fff;    
+    width: 3rem;
   }
   
   button.remove-button:hover {

@@ -8,13 +8,10 @@ import { Observable, of, map } from 'rxjs';
   templateUrl: './history-page.component.html',
   styleUrl: './history-page.component.css'
 })
-export class HistoryPageComponent implements OnInit {
+export class HistoryPageComponent {
   results$: Observable<any> = of([])
-  constructor(private settingService: SettingService){}
 
-  ngOnInit(): void {
-    
-  }
+  constructor(private settingService: SettingService){}
 
   getData(event: string): void {
     this.results$ = this.settingService.getRecipes().pipe(

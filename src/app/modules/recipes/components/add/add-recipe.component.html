@@ -3,7 +3,6 @@
 <div class="dialog-content">
   <form [formGroup]="recipeForm" (ngSubmit)="onSubmit()">
     
-    <!-- Campo Nombre de la Receta y Descripción (en una fila) -->
     <div class="form-row">
       <div class="form-field">
         <label for="name">Title</label>
@@ -57,10 +56,13 @@
               *ngIf="ingredient.get('name')?.invalid && ingredient.get('name')?.touched"
               >Ingredient name is required</span>
           </div>
-        </div>
 
-        <!-- Botón para eliminar ingrediente -->
-        <button type="button" class="remove-button" (click)="removeIngredient(i)">Delete ingredient</button>
+          <div class="form-field">
+            <button type="button" class="remove-button" (click)="removeIngredient(i)">
+              <i class="uil uil-trash"></i>
+            </button>
+          </div>
+        </div>
       </div>
 
       <!-- Botón para agregar nuevo ingrediente -->
