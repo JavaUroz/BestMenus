@@ -11,19 +11,19 @@ export class AuthFormComponent {
   @Input() isRegister: boolean = false;
   @Output() formSubmitted = new EventEmitter<FormGroup>();
 
-  authForm: FormGroup = new FormGroup ({});
+  authForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {
-    this.authForm = new FormGroup({
-      email: new FormControl('', [
+  constructor(private formBuilder: FormBuilder) {
+    this.authForm = this.formBuilder.group({
+      email: ['', [
         Validators.required,
         Validators.email,
-      ]),
-      password: new FormControl('', [
+      ]],
+      password: ['', [
         Validators.required,
         Validators.minLength(6),
         Validators.maxLength(12)
-      ])
+      ]]
     })
   }
   

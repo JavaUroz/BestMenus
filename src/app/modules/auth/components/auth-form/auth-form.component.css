@@ -9,27 +9,7 @@
   background-position: center;
 }
 
-mat-card {
-  width: 100%;
-  max-width: 400px;
-  padding: 20px;
+.bold-heading {
+  font-weight: bold;
+  font-family:Arial, Helvetica, sans-serif ;
 }
-
-mat-card-title {
-  text-align: center;
-  font-size: 1.5em;
-  margin-bottom: 10px;
-}
-
-.auth-form-field {
-  width: 100%;
-  margin-bottom: 15px;
-}
-
-.auth-submit-button {
-  width: 100%;
-  margin-top: 15px;
-  padding: 10px;
-  font-size: 1.1em;
-}
-

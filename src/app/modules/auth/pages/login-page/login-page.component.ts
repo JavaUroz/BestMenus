@@ -12,9 +12,10 @@ import { AuthService } from '@modules/auth/services/auth.service';
 export class LoginPageComponent implements OnInit{
   errorSession: Boolean = false
   loginForm: FormGroup = new FormGroup ({})
-  isRegister: Boolean = false; 
+  isRegister: Boolean = false;
+  isLoading: Boolean = false;
 
-  constructor(private authService: AuthService, private router: Router, private cookie: CookieService, private fb: FormBuilder) {
+  constructor(private authService: AuthService, private router: Router, private cookie: CookieService) {
 
   }
 
@@ -25,14 +26,21 @@ export class LoginPageComponent implements OnInit{
   onLogin(form: FormGroup) {
     if (form) {
       const { email, password } = form.value;
+
+      this.isLoading = true;
+
       this.authService.login(email, password)
         .subscribe(responseOk => {
           const { idToken } = responseOk;
           this.cookie.set('token', idToken, 1, '/');
           this.router.navigate(['/','recipes']);
+
+          this.isLoading = false;
         }, error => {
           this.errorSession = true;
           alert('Incorrect email or password!')
+
+          this.isLoading = false;
         });
     }
   }

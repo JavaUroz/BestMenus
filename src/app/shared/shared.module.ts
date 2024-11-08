@@ -19,6 +19,8 @@ import { AddRecipeComponent } from '@modules/recipes/components/add/add-recipe.c
 import { ReactiveFormsModule } from '@angular/forms';
 import { RecipesListBodyComponent } from './components/recipes-list-body/recipes-list-body.component';
 import { OrderListPipe } from './pipe/order-list.pipe';
+import { LoadingComponent } from './components/loading/loading.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,8 @@ import { OrderListPipe } from './pipe/order-list.pipe';
     OrderListPipe,
     ImgBrokenDirective,
     AddRecipeComponent,
-    RecipesListBodyComponent
+    RecipesListBodyComponent,
+    LoadingComponent
   ],
   imports: [
     CommonModule,
@@ -42,7 +45,8 @@ import { OrderListPipe } from './pipe/order-list.pipe';
     MatCardModule,
     MatButtonModule,
     MatFormFieldModule,
-    MatDialogModule,    
+    MatDialogModule,
+    MatProgressSpinnerModule,
     ReactiveFormsModule,
     MatDialogModule
   ],
@@ -61,7 +65,8 @@ import { OrderListPipe } from './pipe/order-list.pipe';
     TruncatePipe,
     OrderListPipe,
     ImgBrokenDirective,
-    RecipesListBodyComponent
+    RecipesListBodyComponent,
+    LoadingComponent
   ]
 })
 export class SharedModule { }

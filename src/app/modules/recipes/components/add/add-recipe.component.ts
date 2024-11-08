@@ -14,17 +14,17 @@ export class AddRecipeComponent {
   isEditMode: boolean = false;
 
   constructor(
-    private fb: FormBuilder, 
+    private formBuilder: FormBuilder, 
     private settingService: SettingService, 
     private dialogRef: MatDialogRef<AddRecipeComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
-    this.recipeForm = this.fb.group({
+    this.recipeForm = this.formBuilder.group({
       _id: '',
       name: ['', Validators.required],
       description: ['', Validators.required],
       imagePath: ['', Validators.required],
-      ingredients: this.fb.array([])
+      ingredients: this.formBuilder.array([])
     });
 
     if (data && data.recipe) {
@@ -38,7 +38,7 @@ export class AddRecipeComponent {
   }
 
   addIngredient() {
-    const ingredientForm = this.fb.group({
+    const ingredientForm = this.formBuilder.group({
       amount: ['', Validators.required],
       name: ['', Validators.required]
     });

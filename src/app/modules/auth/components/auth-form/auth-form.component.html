@@ -1,32 +1,46 @@
 <div class="auth-form-container">
-  <mat-card>
-    <mat-card-title>{{ isRegister ? 'Register' : 'Login' }}</mat-card-title>
-    <mat-card-content>
+  <div class="card bg-light">
+    <div class="card-header pt-4 text-center">
+      <h1 class="bold-heading">{{ isRegister ? 'Signup' : 'Login' }}</h1>
+    </div>
+    <div class="card-body">
       <form [formGroup]="authForm" (ngSubmit)="onSubmit()">
-        <mat-form-field appearance="fill" class="auth-form-field">
-          <mat-label>Email</mat-label>
-          <input matInput formControlName="email" type="email" required />
-          <mat-error *ngIf="authForm.get('email')?.invalid">Invalid email</mat-error>
-        </mat-form-field>
+        
+        <!-- Email Field -->
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input id="email" formControlName="email" type="email" class="form-control" [ngClass]="{'is-invalid': authForm.get('email')?.invalid && authForm.get('email')?.touched}" required />
+          <div *ngIf="authForm.get('email')?.invalid && authForm.get('email')?.touched" class="invalid-feedback">
+            Invalid email
+          </div>
+        </div>
 
-        <mat-form-field appearance="fill" class="auth-form-field">
-          <mat-label>Password</mat-label>
-          <input matInput formControlName="password" type="password" required />
-          <mat-error *ngIf="authForm.get('password')?.invalid">Invalid password</mat-error>
-        </mat-form-field>
+        <!-- Password Field -->
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input id="password" formControlName="password" type="password" class="form-control" [ngClass]="{'is-invalid': authForm.get('password')?.invalid && authForm.get('password')?.touched}" required />
+          <div *ngIf="authForm.get('password')?.invalid && authForm.get('password')?.touched" class="invalid-feedback">
+            Invalid password
+          </div>
+        </div>
 
-        <button mat-raised-button color="primary" class="auth-submit-button" type="submit">
-          {{ isRegister ? 'Register' : 'Login' }}
+        <!-- Submit Button -->
+        <button type="submit" class="btn btn-primary w-100" [disabled]="authForm.invalid">
+          {{ isRegister ? 'Signup' : 'Login' }}
         </button>
       </form>
-    </mat-card-content>
-    <mat-card-actions *ngIf="!isRegister">
-      <span>Don't have an account?</span>
-      <button mat-button color="accent" routerLink="/auth/register">Sign up here</button>
-    </mat-card-actions>
-    <mat-card-actions *ngIf="isRegister">
-      <span>Already have an account?</span>
-      <button mat-button color="accent" routerLink="/auth/login">Log in here</button>
-    </mat-card-actions>
-  </mat-card>
+    </div>
+
+    <!-- Card Actions -->
+    <div class="card-footer text-center">
+      <div *ngIf="!isRegister">
+        <span>Don't have an account?</span>
+        <a class="btn btn-link" routerLink="/auth/register">Sign up here</a>
+      </div>
+      <div *ngIf="isRegister">
+        <span>Already have an account?</span>
+        <a class="btn btn-link" routerLink="/auth/login">Log in here</a>
+      </div>
+    </div>
+  </div>
 </div>
