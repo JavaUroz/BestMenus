@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { RecipeModel } from '@core/models/recipe.model';
 import { SettingService } from '@core/settings/setting.service';
 import { Observable, of, map } from 'rxjs';

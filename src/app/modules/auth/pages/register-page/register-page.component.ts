@@ -12,6 +12,7 @@ export class RegisterPageComponent implements OnInit {
   errorSession: Boolean = false
   registerForm: FormGroup = new FormGroup ({})
   isRegister:boolean = true;
+  isLoading: Boolean = false
 
   constructor(private authService: AuthService, private router: Router, private fb: FormBuilder) {}
 
@@ -20,12 +21,15 @@ export class RegisterPageComponent implements OnInit {
   }
 
   onRegister(form: FormGroup): void {
+    this.isLoading = true
     const { email, password } = form.value
     this.authService.register(email, password,)
     .subscribe(() => {
+      this.isLoading = false
       alert('You have successfully registered, please login!')
       this.router.navigate(['/auth/login']);
     }, error => {
+      this.isLoading = false
       this.errorSession = true
       console.log('⚠️Error, something was wrong!⚠️')
     })

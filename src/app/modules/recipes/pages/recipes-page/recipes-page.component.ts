@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { RecipeModel } from '@core/models/recipe.model';
 import { SettingService } from '@core/settings/setting.service';
-import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-recipes-page',
@@ -10,7 +9,7 @@ import { CookieService } from 'ngx-cookie-service';
 })
 export class RecipesPageComponent {
   recipes: Array<RecipeModel> = []
-
+  isLoading: Boolean = false
 
   constructor(private settingService: SettingService) { }
 
@@ -21,12 +20,9 @@ export class RecipesPageComponent {
   loadDataAll(): void{
     this.settingService.getRecipes()
       .subscribe((response: Array<any>) => {
+        this.isLoading = true
         this.recipes = response
     })
-  }
-
-  ngOnDestroy(): void {
-
   }
 }
 

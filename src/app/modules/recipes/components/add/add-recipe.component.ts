@@ -10,8 +10,9 @@ import { SettingService } from '@core/settings/setting.service';
   styleUrls: ['./add-recipe.component.css']
 })
 export class AddRecipeComponent {
-  recipeForm: FormGroup;
-  isEditMode: boolean = false;
+  recipeForm: FormGroup
+  isEditMode: boolean = false
+  isLoading: Boolean = false
 
   constructor(
     private formBuilder: FormBuilder, 
@@ -71,6 +72,7 @@ export class AddRecipeComponent {
   }
 
   onSubmit() {
+    this.isLoading = true
     if (this.recipeForm.valid) {
       const recipeData: RecipeModel = this.recipeForm.value;
       if (this.isEditMode) {
@@ -84,10 +86,12 @@ export class AddRecipeComponent {
   createRecipe(recipe: RecipeModel) {
     this.settingService.createRecipe(recipe).subscribe(
       (response) => {
+        this.isLoading = false
         alert('New recipe added!')
         this.dialogRef.close();
       },
       (error) => {
+        this.isLoading = false
         console.error('Error while adding a new recipe!', error);
       }
     );
