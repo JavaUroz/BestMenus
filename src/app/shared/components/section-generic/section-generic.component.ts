@@ -2,7 +2,6 @@ import { Component, Input } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { RecipeModel } from '@core/models/recipe.model';
 import { AddRecipeComponent } from '@modules/recipes/components/add/add-recipe.component';
-import { LoadingService } from '@shared/services/loading.service';
 
 @Component({
   selector: 'app-section-generic',

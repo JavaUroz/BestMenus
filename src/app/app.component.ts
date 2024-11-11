@@ -11,9 +11,6 @@ export class AppComponent {
   title = 'BestMenus';
 
   constructor(private loadingService: LoadingService) {
-    this.loadingService.loading$.subscribe(isLoading => {
-      console.log('isLoading:',isLoading)
-      this.isLoading = isLoading
-    })
+    this.loadingService.loading$.subscribe(isLoading => this.isLoading = isLoading)
   }
 }

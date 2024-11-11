@@ -47,8 +47,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     MatFormFieldModule,
     MatDialogModule,
     MatProgressSpinnerModule,
-    ReactiveFormsModule,
-    MatDialogModule
+    ReactiveFormsModule
   ],
   exports: [
     SideBarComponent,
