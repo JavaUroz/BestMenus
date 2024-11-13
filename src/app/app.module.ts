@@ -8,7 +8,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { InjectSessionInterceptor } from '@core/interceptors/inject-session.interceptor';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { LoadingService } from '@shared/services/loading.service';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { LoadingInterceptor } from '@core/interceptors/loading.interceptor';
 
 @NgModule({
@@ -20,7 +20,8 @@ import { LoadingInterceptor } from '@core/interceptors/loading.interceptor';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    AuthModule    
+    AuthModule,
+    MatProgressSpinnerModule
   ],
   providers: [
     CookieService,
@@ -34,7 +35,6 @@ import { LoadingInterceptor } from '@core/interceptors/loading.interceptor';
       useClass: LoadingInterceptor,
       multi: true
     },
-    LoadingService,
     provideAnimationsAsync()
   ],
   bootstrap: [AppComponent]

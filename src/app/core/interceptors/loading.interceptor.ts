@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpContextToken, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { finalize, tap } from 'rxjs/operators';
+import { finalize } from 'rxjs/operators';
 import { LoadingService } from '@shared/services/loading.service';  // Servicio de carga
 
 export const SkipLoading = 

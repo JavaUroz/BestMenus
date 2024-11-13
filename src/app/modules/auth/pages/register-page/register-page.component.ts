@@ -1,6 +1,6 @@
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormGroup } from '@angular/forms';
 import { AuthService } from '@modules/auth/services/auth.service';
 
 @Component({
@@ -12,24 +12,20 @@ export class RegisterPageComponent implements OnInit {
   errorSession: Boolean = false
   registerForm: FormGroup = new FormGroup ({})
   isRegister:boolean = true;
-  isLoading: Boolean = false
 
-  constructor(private authService: AuthService, private router: Router, private fb: FormBuilder) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit(): void {
     
   }
 
   onRegister(form: FormGroup): void {
-    this.isLoading = true
     const { email, password } = form.value
     this.authService.register(email, password,)
     .subscribe(() => {
-      this.isLoading = false
       alert('You have successfully registered, please login!')
       this.router.navigate(['/auth/login']);
     }, error => {
-      this.isLoading = false
       this.errorSession = true
       console.log('⚠️Error, something was wrong!⚠️')
     })

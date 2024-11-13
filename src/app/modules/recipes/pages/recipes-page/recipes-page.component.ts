@@ -9,7 +9,6 @@ import { SettingService } from '@core/settings/setting.service';
 })
 export class RecipesPageComponent {
   recipes: Array<RecipeModel> = []
-  isLoading: Boolean = false
 
   constructor(private settingService: SettingService) { }
 
@@ -20,7 +19,6 @@ export class RecipesPageComponent {
   loadDataAll(): void{
     this.settingService.getRecipes()
       .subscribe((response: Array<any>) => {
-        this.isLoading = true
         this.recipes = response
     })
   }

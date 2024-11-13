@@ -7,10 +7,7 @@ import { LoadingService } from '@shared/services/loading.service';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  isLoading: Boolean = false
   title = 'BestMenus';
 
-  constructor(private loadingService: LoadingService) {
-    this.loadingService.loading$.subscribe(isLoading => this.isLoading = isLoading)
-  }
+  constructor(public loadingService: LoadingService) {}
 }

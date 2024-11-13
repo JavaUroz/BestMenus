@@ -19,7 +19,6 @@ import { AddRecipeComponent } from '@modules/recipes/components/add/add-recipe.c
 import { ReactiveFormsModule } from '@angular/forms';
 import { RecipesListBodyComponent } from './components/recipes-list-body/recipes-list-body.component';
 import { OrderListPipe } from './pipe/order-list.pipe';
-import { LoadingComponent } from './components/loading/loading.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @NgModule({
@@ -32,8 +31,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     OrderListPipe,
     ImgBrokenDirective,
     AddRecipeComponent,
-    RecipesListBodyComponent,
-    LoadingComponent
+    RecipesListBodyComponent
   ],
   imports: [
     CommonModule,
@@ -64,8 +62,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     TruncatePipe,
     OrderListPipe,
     ImgBrokenDirective,
-    RecipesListBodyComponent,
-    LoadingComponent
+    RecipesListBodyComponent
   ]
 })
 export class SharedModule { }

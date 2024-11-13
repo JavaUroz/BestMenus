@@ -4,7 +4,6 @@ import { CookieService } from 'ngx-cookie-service';
 import { Observable } from 'rxjs';
 import { RecipeModel } from '@core/models/recipe.model';
 import { environment } from 'src/environments/environment.prod';
-import { SkipLoading } from '@core/interceptors/loading.interceptor';
 
 @Injectable({
   providedIn: 'root',
@@ -16,29 +15,21 @@ export class SettingService {
 
   getRecipes(): Observable<RecipeModel[]> {
     const token = this.cookieService.get('token');
-    return this.http.get<RecipeModel[]>(`${this.apiUrl}/recipes/get?auth=${token}`, {
-      context: new HttpContext().set(SkipLoading, true),
-    });
+    return this.http.get<RecipeModel[]>(`${this.apiUrl}/recipes/get?auth=${token}`);
   }
   
   createRecipe(recipe: RecipeModel): Observable<RecipeModel> {
     const token = this.cookieService.get('token');
-    return this.http.post<RecipeModel>(`${this.apiUrl}/recipes/add?auth=${token}`, recipe, {
-      context: new HttpContext().set(SkipLoading, true),
-    });
+    return this.http.post<RecipeModel>(`${this.apiUrl}/recipes/add?auth=${token}`, recipe);
   }
   
   editRecipe(recipe: RecipeModel, id: string): Observable<RecipeModel> {
     const token = this.cookieService.get('token');
-    return this.http.put<RecipeModel>(`${this.apiUrl}/recipes/edit/${id}?auth=${token}`, recipe, {
-      context: new HttpContext().set(SkipLoading, true),
-    });
+    return this.http.put<RecipeModel>(`${this.apiUrl}/recipes/edit/${id}?auth=${token}`, recipe);
   }
   
   deleteRecipe(id: string): Observable<RecipeModel> {
     const token = this.cookieService.get('token');
-    return this.http.delete<RecipeModel>(`${this.apiUrl}/recipes/delete/${id}?auth=${token}`, {
-      context: new HttpContext().set(SkipLoading, true),
-    });
+    return this.http.delete<RecipeModel>(`${this.apiUrl}/recipes/delete/${id}?auth=${token}`);
   }
 }
